@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+:root {
+
+  /* =========================================
+   * Neutral Colors
+   * ========================================= */
+
+  --neutral-900: #171717;
+  --neutral-700: #4B4B4B;
+  --neutral-500: #6B6B6B;
+  --neutral-300: #8C8A97;
+  --neutral-50:  #F7F7F7;
+  --neutral-20:  #FAFAFA;
+
+
+  /* =========================================
+   * BRAND
+   * ========================================= */
+
+  --brand-primary-900: #312255;
+  --brand-primary-700: #5A4391;
+  --brand-accent-500:  #FF7A7A;
+  --brand-accent-600:  #FF7A7A;
+
+
+  /* =========================================
+   * BACKGROUNDS / SURFACES
+   * ========================================= */
+
+  --background: #F7F7F7;
+
+  --surface-primary: #FAFAFA;
+
+
+  /* =========================================
+   * TEXT
+   * ========================================= */
+
+  --text-primary: #171717;
+  --text-secondary: #4B4B4B;
+  --text-tertiary: #6B6B6B;
+  --text-on-dark: #F7F7F7;
+
+
+  /* =========================================
+   * SUPPORT
+   * ========================================= */
+
+    --support-primary-100:  #D0C2F2;
+    --support-accent-100:  #F2C2C2;
+
+    --tag-background: rgba(208, 194, 242, 0.20);
+
+    --border-subtle: #FF7A7A;
+    --border-default: #6B6B6B;
+
+  /* FEEDBACK */
+
+    --support-success-100: #7AFFB1;
+    --support-success-500: #00B85C;
+
+    --support-warning-100: #FFF4CC;
+    --support-warning-500: #F5A524;
+
+    --support-error-100: #FFE3E3;
+    --support-error-500: #FF3355;
+
+
+  /* =========================================
+   * INTERACTIVE
+   * ========================================= */
+
+    --interactive-primary: var(--brand-primary-900);
+    --interactive-primary-hover: var(--brand-primary-700);
+
+    --interactive-accent-500: var(--brand-accent-500);
+    --interactive-accent-600: var(--brand-accent-600);
+
+
+  /* =========================================
+   * GRADIENTS
+   * ========================================= */
+
+  --gradient-soft:
+    linear-gradient(
+      180deg,
+      var(--background) 0%,
+      var(--support-accent-100) 100%
+    );
+
+
+  /* =========================================
+   * SHADOWS
+   * ========================================= */
+
+  --shadow-sm:
+    0px 2px 8px rgba(26, 19, 43, 0.06);
+
+  --shadow-md:
+    0px 6px 18px rgba(26, 19, 43, 0.10);
+
+}
+
+@theme inline {
+
+
+  --font-sans:
+    var(--font-geist-sans);
+
+  --font-mono:
+    var(--font-geist-mono);
+
+
+  /* =========================================
+   * COLORS
+   * ========================================= */
+
+  --color-background:
+    var(--background);
+
+  --color-foreground:
+    var(--foreground);
+
+  --color-surface-primary:
+    var(--surface-primary);
+
+  --color-surface-secondary:
+    var(--surface-secondary);
+
+  --color-text-primary:
+    var(--text-primary);
+
+  --color-text-secondary:
+    var(--text-secondary);
+
+  --color-text-on-dark:
+    var(--text-on-dark);
+
+  --color-border-default:
+    var(--border-default);
+
+  --color-tag-background:
+    var(--tag-background);
+
+  --tag-border: var(--support-primary-100);
+  --tag-text: var(--neutral-700);
+  --tag-background: var(--tag-background);  
+
+  --color-interactive-primary:
+    var(--interactive-primary);
+
+  --color-interactive-primary-hover:
+    var(--interactive-primary-hover);
+    
+    
+
+  /* =========================================
+   * BRAND SCALE
+   * ========================================= */
+
+   /* Texto */
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-700);
+  --text-tertiary: var(--neutral-500);
+  --text-caption: var(--neutral-300);
+
+  --color-brand-primary-900:
+    var(--brand-primary-900);
+
+  --color-brand-primary-700:
+    var(--brand-primary-700);
+
+  --color-accent-500:
+    var(--brand-accent-500);  
+
+  --color-accent-600:
+    var(--brand-accent-600);
+
+
+}
+
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+*/
+
+ body {
+  background: var(--background);
+  color: var(--text-primary);
+
+}
+
+/* FONTES */
+
+.font-display {
+  font-family: var(--font-inter);
+}
+
+.font-serif-display {
+  font-family: var(--font-pt-serif);
+}
+
+/* LIGHTBOX */
+
+.yarl__container {
+  background: rgba(0, 0, 0, 0.94);
+}
+
+
+/* Botão animado */
+
+@keyframes floating {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+
+.animate-floating {
+  animation: floating 4.5s ease-in-out infinite;
+}
