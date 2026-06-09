@@ -1,11 +1,9 @@
-import ContactToast from "./contact/ContactToast";
-
 "use client";
 
 import { useState } from "react";
 import ContactModal from "./contact/ContactModal";
 import Image from "next/image";
-
+import ContactToast from "./contact/ContactToast";
 
 export default function ContactCTA() {
   const [isModalOpen, setIsModalOpen] = useState(false);
