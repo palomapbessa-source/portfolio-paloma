@@ -19,9 +19,7 @@ export default function ContactCTA() {
   };
 
   const handleSuccess = () => {
-
     setIsModalOpen(false);
-
     setShowToast(true);
 
     setTimeout(() => {
@@ -32,6 +30,7 @@ export default function ContactCTA() {
 
   return (
     <>
+    {showToast && <ContactToast />}
 
     <div
       className="
@@ -164,6 +163,7 @@ export default function ContactCTA() {
         <ContactModal
         isOpen={isModalOpen}
         onClose={closeModal}
+        onSuccess={handleSuccess}
         />
 
       </div>

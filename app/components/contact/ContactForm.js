@@ -1,9 +1,53 @@
+"use client";
+
+import { useState } from "react";
+
 import Image from "next/image";
 
-export default function ContactForm() {
+export default function ContactForm({ onSuccess }) {
+  const [name, setName] = useState("");
+const [email, setEmail] = useState("");
+const [message, setMessage] = useState("");
+
+const [loading, setLoading] = useState(false);
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    setLoading(true);
+
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setName("");
+      setEmail("");
+      setMessage("");
+
+      onSuccess?.();
+    }
+  } catch (error) {
+    console.error(error);
+  } finally {
+    setLoading(false);
+  }
+};
+
   return (
 
-    <form
+    <form onSubmit={handleSubmit}
       className="
         mt-8
 
@@ -27,6 +71,8 @@ export default function ContactForm() {
 
             <input
                 type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Seu nome"
                 className="
                 h-14
@@ -42,6 +88,8 @@ export default function ContactForm() {
 
             <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="seu@email.com"
                 className="
                 h-14
@@ -60,8 +108,10 @@ export default function ContactForm() {
       {/* Mensagem */}
 
       <textarea
-        placeholder="Escreva sua mensagem aqui..."
-        className="
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Escreva sua mensagem aqui..."
+          className="
           h-40
 
           p-4
@@ -113,7 +163,7 @@ export default function ContactForm() {
             />
 
             <span>
-                Enviar mensagem
+                 {loading ? "Enviando..." : "Enviar mensagem"}
             </span>
 
             </button>
