@@ -1,9 +1,12 @@
 import "./globals.css";
 
 import { Inter, PT_Serif } from "next/font/google";
+import Script from 'next/script';
   
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const inter = Inter({
   subsets: ["latin"],
@@ -59,6 +62,29 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
+
+       <head>
+        {GA_ID && (
+          <>
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            />
+            <Script
+              id="gtag-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+                `,
+              }}
+            />
+          </>
+        )}
+      </head>
 
       <body
         className={`

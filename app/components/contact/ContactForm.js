@@ -36,6 +36,8 @@ const handleSubmit = async (e) => {
 
     const data = await response.json();
 
+    console.log("API Response:", data);
+
     if (data.success) {
       setName("");
       setEmail("");
