@@ -62,7 +62,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      {GA_ID && (
+
+      <body
+        className={`
+          ${inter.className}
+          ${ptSerif.variable}
+          min-h-screen
+          antialiased
+        `}
+      >
+        {GA_ID && (
         <>
           <Script
             strategy="afterInteractive"
@@ -82,15 +91,6 @@ export default function RootLayout({ children }) {
           />
         </>
       )}
-
-      <body
-        className={`
-          ${inter.className}
-          ${ptSerif.variable}
-          min-h-screen
-          antialiased
-        `}
-      >
 
         <Header />
 
