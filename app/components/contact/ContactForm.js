@@ -4,12 +4,16 @@ import { useState } from "react";
 
 import Image from "next/image";
 
+import { Turnstile } from "@marsidev/react-turnstile";
+
 export default function ContactForm({ onSuccess }) {
   const [name, setName] = useState("");
 const [email, setEmail] = useState("");
 const [message, setMessage] = useState("");
 
 const [loading, setLoading] = useState(false);
+
+const [turnstileToken, setTurnstileToken] = useState("");
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -26,6 +30,7 @@ const handleSubmit = async (e) => {
         name,
         email,
         message,
+        turnstileToken,
       }),
     });
 
@@ -125,12 +130,18 @@ const handleSubmit = async (e) => {
         "
       />
 
+      <Turnstile
+        siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+        onSuccess={(token) => setTurnstileToken(token)}
+      />
+
       {/* Botão */}
 
       <div className="flex justify-end">
 
         <button
             type="submit"
+            disabled={loading || !turnstileToken}
             className="
                 mt-8
 
@@ -152,6 +163,9 @@ const handleSubmit = async (e) => {
 
                 hover:opacity-90
                 transition-opacity
+
+                disabled:opacity-50
+                disabled:cursor-not-allowed
             "
             >
 
