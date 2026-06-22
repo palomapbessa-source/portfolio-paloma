@@ -57,6 +57,8 @@ export const metadata = {
       },
     ],
   },
+  
+  verification: { google: "gnjbBfB8G7H9WrF0BkNIRdbYvf8wjlxlGg36WAPUGiQ" },
 };
 
 export default function RootLayout({ children }) {
