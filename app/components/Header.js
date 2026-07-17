@@ -74,16 +74,26 @@ export default function Header() {
         {/* LOGO */}
         <Link
           href="/"
-          className="
-            text-title-m
-            font-bold
-            tracking-tight
-            text-[var(--brand-primary-900)]
-            transition-opacity duration-200
-            hover:opacity-80
-          "
+          aria-label="Página inicial"
+          className="transition-opacity duration-200 hover:opacity-80"
         >
-          Paloma Bessa
+          {/* Desktop */}
+          <img
+            src="/logo-pb-desktop.svg"
+            alt="PB Design"
+            className="hidden md:block"
+            width={116.5}
+            height={40}
+          />
+
+          {/* Mobile */}
+          <img
+            src="/logo-pb-mobile.svg"
+            alt="PB Design"
+            className="block md:hidden"
+            width={40}
+            height={40}
+          />
         </Link>
 
         {/* DESKTOP NAV */}
