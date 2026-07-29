@@ -1,10 +1,12 @@
 import "./globals.css";
 
-import { Inter, PT_Serif } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import Script from 'next/script';
   
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import ContactModalProvider from "@/app/components/contact/ContactModalProvider";
+import WhatsAppButton from "@/app/components/WhatsAppButton";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -13,10 +15,10 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const ptSerif = PT_Serif({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-pt-serif",
+  weight: ["600"],
+  variable: "--font-montserrat",
 });
 
 export const metadata = {
@@ -68,7 +70,7 @@ export default function RootLayout({ children }) {
       <body
         className={`
           ${inter.className}
-          ${ptSerif.variable}
+          ${montserrat.variable}
           min-h-screen
           antialiased
         `}
@@ -94,6 +96,9 @@ export default function RootLayout({ children }) {
         </>
       )}
 
+        <ContactModalProvider>
+
+
         <Header />
 
         <main>
@@ -101,6 +106,10 @@ export default function RootLayout({ children }) {
         </main>
 
         <Footer />
+
+        <WhatsAppButton />
+
+        </ContactModalProvider>
 
       </body>
 

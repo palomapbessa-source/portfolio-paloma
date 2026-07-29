@@ -44,8 +44,8 @@ export default function Header() {
 
   const pillStyle = [
     "flex items-center justify-center",
-    "h-10",
-    "px-6 py-2",
+    "h-9",
+    "px-4 py-2",
     "rounded-full",
     "border",
     "text-[14px]",
@@ -66,9 +66,15 @@ export default function Header() {
     <header className="fixed top-0 left-0 z-50 w-full">
       <div
         className="
-          mx-auto flex h-[72px] max-w-6xl
-          items-center justify-between
-          px-5 md:px-8
+        flex
+        items-center
+        justify-between
+
+        px-5
+        pt-5
+        pb-2
+
+        md:px-8
         "
       >
         {/* LOGO */}
@@ -82,8 +88,8 @@ export default function Header() {
             src="/logo-pb-desktop.svg"
             alt="PB Design"
             className="hidden md:block"
-            width={116.5}
-            height={40}
+            width={93}
+            height={32}
           />
 
           {/* Mobile */}
@@ -91,8 +97,8 @@ export default function Header() {
             src="/logo-pb-mobile.svg"
             alt="PB Design"
             className="block md:hidden"
-            width={40}
-            height={40}
+            width={32}
+            height={32}
           />
         </Link>
 

@@ -1,52 +1,82 @@
-import FloatingScrollButton from "@/app/components/ui/FloatingScrollButton";
+import Grainient from "./Grainient";
 
 export default function Hero() {
   return (
-
     <section
       className="
-        bg-gradient-to-b
-        from-[#F2C2C2]
-        to-[#D0C2F2]
-
+        relative
+        overflow-hidden
         rounded-b-[48px]
         md:rounded-b-[64px]
-
-        overflow-hidden
       "
     >
+      {/* Background */}
+      <Grainient
+      color1="#F2C2C2"
+      color2="#D0C2F2"
+      color3="#E4E6EF"
+      timeSpeed={4}
+      colorBalance={0}
+      warpStrength={1}
+      warpFrequency={5}
+      warpSpeed={2}
+      warpAmplitude={50}
+      blendAngle={0}
+      blendSoftness={0.05}
+      rotationAmount={500}
+      noiseScale={2}
+      grainAmount={0}
+      grainScale={2}
+      grainAnimated={false}
+      contrast={1.5}
+      gamma={1}
+      saturation={1}
+      centerX={0}
+      centerY={0}
+      zoom={0.9}
+    />
 
+      {/* Conteúdo */}
       <div
         className="
-          max-w-6xl
+          relative
+          z-10
+
+          max-w-5xl
           mx-auto
+          min-h-screen
+
           px-4
 
-          h-screen
-
           flex
-          flex-col
           items-center
-          justify-between
+          justify-center
 
           text-center
         "
       >
 
-        {/* ESPAÇO SUPERIOR */}
-        <div />
+        {/* Texto */}
+        <div
+          className="
+            max-w-5xl
 
-        {/* TEXTO */}
-        <div className="w-full">
+            flex
+            flex-col
+            items-center
 
+            gap-8
+          "
+        >
           <h1
             className="
-              font-[family-name:var(--font-pt-serif)]
+
+              font-[family-name:var(--font-montserrat)]
 
               text-[48px]
               md:text-[72px]
 
-              font-normal
+              font-semibold
 
               leading-[0.95]
 
@@ -60,11 +90,10 @@ export default function Hero() {
 
           <p
             className="
-              mt-8
               mx-auto
               max-w-2xl
 
-              text-[#171717]
+              text-[var(--neutral-500)]
 
               text-[18px]
               md:text-[24px]
@@ -76,16 +105,36 @@ export default function Hero() {
             estratégicas, intuitivas e centradas nas pessoas
           </p>
 
-        </div>
+          {/* botão */}
+          <a
+            href="#contato"
+            className="
+              inline-flex
+              items-center
+              justify-center
 
-        {/* BOTÃO */}
-        <div className="pb-8 md:pb-10">
-          <FloatingScrollButton />
+              h-14
+              px-8
+
+              rounded-full
+
+              bg-[#FF7A7A]
+              text-white
+
+              font-medium
+
+              transition-all
+              duration-300
+
+              hover:scale-105
+              hover:bg-[#FF6B6B]
+            "
+          >
+            Vamos conversar
+          </a>
         </div>
 
       </div>
-
     </section>
-
   );
 }

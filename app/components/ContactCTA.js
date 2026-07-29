@@ -1,37 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import ContactModal from "./contact/ContactModal";
 import Image from "next/image";
-import ContactToast from "./contact/ContactToast";
+import { useContactModal } from "./contact/ContactModalProvider";
 
 export default function ContactCTA() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const [showToast, setShowToast] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleSuccess = () => {
-    setIsModalOpen(false);
-    setShowToast(true);
-
-    setTimeout(() => {
-      setShowToast(false);
-    }, 3000);
-
-  };
+  const { openContactModal } = useContactModal();
 
   return (
     <>
-    {showToast && <ContactToast />}
-
     <div
       className="
         w-full
@@ -97,7 +73,7 @@ export default function ContactCTA() {
         </p>
 
         <button
-        onClick={() => setIsModalOpen(true)}
+        onClick={openContactModal}
           className="
             mt-8
 
@@ -160,11 +136,6 @@ export default function ContactCTA() {
           />
 
         </div>
-        <ContactModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        onSuccess={handleSuccess}
-        />
 
       </div>
 

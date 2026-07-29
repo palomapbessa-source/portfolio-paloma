@@ -1,74 +1,107 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--neutral-700)]">
+    <footer className="bg-[var(--brand-primary-900)]">
+      <div
+        className="
+          w-auto
+          flex
+          px-5
+          py-5
 
-      <div className="max-w-6xl mx-auto px-6 py-6">
+          flex-col
+          justify-center
+          items-center
+          gap-4
 
-        <div className="flex flex-col gap-2">
+          md:flex-row
+          md:justify-between
+          md:items-center
+          md:gap-0
+        "
+      >
+        {/* Logo + copyright */}
+        <div
+          className="
+            flex
+            flex-row
+            items-center
+            justify-center
 
-          {/* PRIMEIRA LINHA */}
-          <div
-            className="
-              flex
-              items-center
-              justify-between
-              gap-4
-            "
-          >
+            md:flex-col
+            md:items-start
 
-            <p
-              className="
-                text-[var(--brand-primary-900)]
-                font-semibold
-                text-[16px]
-              "
-            >
-              Paloma Bessa
-            </p>
+            gap-2
 
-            <a
-              href="https://linkedin.com/in/palomabessa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                flex
-                items-center
-                gap-2
+            order-2
+            md:order-1
+          "
+        >
+          <img
+            src="/logo-pb-mobile-white.svg"
+            alt="PB Design"
+            className="h-6 w-auto"
+          />
 
-                text-[var(--text-secondary)]
-                text-[14px]
-
-                hover:opacity-70
-                transition
-              "
-            >
-              <img
-                src="/icons/linkedin.svg"
-                alt="LinkedIn"
-                className="w-5 h-5"
-              />
-
-              <span>/palomabessa</span>
-
-            </a>
-
-          </div>
-
-          {/* SEGUNDA LINHA */}
-
-          <p
-            className="
-              text-[var(--text-secondary)]
-              text-[14px]
-            "
-          >
+          <p className="text-sm text-white">
             © 2026 Portfólio
           </p>
-
         </div>
 
-      </div>
+        {/* Redes sociais */}
+        <nav
+          aria-label="Redes sociais"
+          className="
+            flex
+            items-center
+            gap-3
 
+            order-1
+            md:order-2
+          "
+        >
+          <a
+            href="https://instagram.com/pbessa.design"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="transition-opacity hover:opacity-70"
+          >
+            <img
+              src="/icons/instagram.svg"
+              alt="icone do Instagram"
+              className="w-5 h-5"
+            />
+          </a>
+
+          <a
+            href="https://facebook.com/pbessa.design"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="transition-opacity hover:opacity-70"
+          >
+            <img
+              src="/icons/facebook.svg"
+              alt="icone do Facebook"
+              className="w-5 h-5"
+            />
+          </a>
+
+          <a
+            href="https://linkedin.com/in/palomabessa"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="transition-opacity hover:opacity-70"
+          >
+            <img
+              src="/icons/linkedin.svg"
+              alt="icone do LinkedIn"
+              className="w-5 h-5"
+            />
+          </a>
+        </nav>
+      </div>
     </footer>
   );
 }

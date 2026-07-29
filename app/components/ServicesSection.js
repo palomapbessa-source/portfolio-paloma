@@ -51,7 +51,6 @@ export default function ServicesSection() {
         py-16
         md:py-24
       "
-      style={{background: "var(--gradient-soft)",}}
     >
       <div
         className="
