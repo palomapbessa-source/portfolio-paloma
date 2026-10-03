@@ -38,11 +38,11 @@ export default function CaseTemplate({
         <h1
           className="
             mt-10
-            text-4xl
-            md:text-5xl
+            text-[32px]
+            md:text-[36px]
             font-bold
             leading-tight
-            text-[#312255]
+            text-[var(--brand-primary-900)]
           "
         >
           {project.title}
@@ -81,7 +81,7 @@ export default function CaseTemplate({
 
         {project.sections?.length > 0 && (
 
-          <div className="mt-20 space-y-20">
+          <div className="mt-20 space-y-8">
 
             {project.sections.map((section) => (
 
@@ -89,10 +89,9 @@ export default function CaseTemplate({
 
                 <h2
                   className="
-                    text-[28px]
-                    md:text-[32px]
+                    text-[24px]
                     font-semibold
-                    text-[#F26D6D]
+                    text-[var(--brand-primary-700)]
                   "
                 >
                   {section.title}
@@ -102,10 +101,9 @@ export default function CaseTemplate({
 
                   <p
                     className="
-                      mt-6
-                      text-[#4B4B4B]
-                      text-lg
-                      leading-relaxed
+                      text-[var(--text-primary)]
+                      text-[16px]
+                      leading-[24px]
                     "
                   >
                     {section.content}
@@ -117,12 +115,12 @@ export default function CaseTemplate({
 
                   <ul
                     className="
-                      mt-6
-                      pl-6
+                      mt-4
+                      pl-4
                       list-disc
                       space-y-2
-                      text-lg
-                      text-[#4B4B4B]
+                      text-[16px]
+                      leading-[24px]
                     "
                   >
 
@@ -172,7 +170,7 @@ export default function CaseTemplate({
 
                           <p
                             className="
-                              mt-5
+                              mt-4
 
                               max-w-[700px]
 
