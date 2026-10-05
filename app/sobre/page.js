@@ -48,7 +48,7 @@ export default function Sobre() {
 
 
           {/* ESPAÇO RESERVADO PARA O CARD */}
-          <div className="flex items-center justify-center">
+          <div className="flex w-full min-w-0 items-center justify-center">
             <ProfileCard />
           </div>
 
