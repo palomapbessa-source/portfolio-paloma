@@ -96,27 +96,34 @@ export default function CaseTemplate({
                 >
                   {section.title}
                 </h2>
-
+                
                 {section.content && (
-
-                  <p
-                    className="
-                      text-[var(--text-primary)]
-                      text-[16px]
-                      leading-[24px]
-                    "
-                  >
-                    {section.content}
-                  </p>
-
+                  <div className="mt-4 space-y-4">
+                    {(Array.isArray(section.content)
+                      ? section.content
+                      : [section.content]
+                    ).map((paragraph, index) => (
+                      <p
+                        key={index}
+                        className="
+                          text-[var(--text-primary)]
+                          text-[16px]
+                          leading-[24px]
+                        "
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 )}
+
 
                 {section.list?.length > 0 && (
 
                   <ul
                     className="
                       mt-4
-                      pl-4
+                      pl-6
                       list-disc
                       space-y-2
                       text-[16px]

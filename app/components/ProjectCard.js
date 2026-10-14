@@ -8,6 +8,9 @@ project,
 priority = false,
 }) {
 
+const tags = Array.isArray(project.tags) ? project.tags : [];
+
+
 const mobileTags = project.tags.slice(0, 3);
 const desktopTags = project.tags.slice(0, 4);
 

@@ -6,8 +6,8 @@ export default function Tag({ children }) {
         items-center
         justify-center
 
-        h-8
-        px-4
+        h-7
+        px-3
 
         whitespace-nowrap
 
